@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureNet Solutions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0a0a0a, #1f1f1f);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #00ffcc;
+    }
+
+    header p {
+      color: #aaa;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 1.5rem;
+      width: 300px;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #00ffcc;
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #00ffcc;
+    }
+
+    .contact-form {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #2a2a2a;
+      color: #fff;
+    }
+
+    .contact-form button {
+      background: #00ffcc;
+      color: #000;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 700px) {
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SecureNet Solutions</h1>
+    <p>Protecting your digital world — audits, diagnostics, and defense strategies built for today's threats.</p>
+  </header>
+
+  <section>
+    <h2>What We Do</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Wi-Fi Security Audits</h3>
+        <p>We test, diagnose, and strengthen your home or office wireless networks using ethical, legal tools.</p>
+      </div>
+      <div class="card">
+        <h3>Vulnerability Assessments</h3>
+        <p>Comprehensive scans and reports to identify weaknesses in your infrastructure before attackers do.</p>
+      </div>
+      <div class="card">
+        <h3>ISP Performance Help</h3>
+        <p>We analyze latency, DNS, and throughput to help you get the best service from your provider.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <label>Name</label>
+      <input type="text" name="name" required />
+
+      <label>Email</label>
+      <input type="email" name="email" required />
+
+      <label>Message</label>
+      <textarea name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 SecureNet Solutions. All rights reserved.
+  </footer>
+
+</body>
+</html>
+<section>
+  <h2>Wi-Fi Security Tips</h2>
+  <ul>
+    <li>Use WPA3 encryption if your router supports it.</li>
+    <li>Change your default SSID and password regularly.</li>
+    <li>Disable WPS to prevent brute force attacks.</li>
+    <li>Keep your router firmware updated.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Test Your Network Latency</h2>
+  <button onclick="runPingTest()">Run Ping Test</button>
+  <div id="pingResult"></div>
+</section>
+
+<script>
+  async function runPingTest() {
+    const start = performance.now();
+    try {
+      await fetch("https://yourserver.com/ping"); // Replace with your API endpoint
+      const end = performance.now();
+      const latency = Math.round(end - start);
+      document.getElementById("pingResult").innerText = `Latency: ${latency} ms`;
+    } catch {
+      document.getElementById("pingResult").innerText = "Ping test failed.";
+    }
+  }
+</script>
+
+<section>
+  <h2>Wi-Fi Security Quiz</h2>
+  <form id="quizForm" onsubmit="checkQuiz(event)">
+    <label>1. What encryption type is most secure?</label><br/>
+    <input type="radio" name="q1" value="wpa2"> WPA2<br/>
+    <input type="radio" name="q1" value="wpa3"> WPA3<br/>
+    <input type="radio" name="q1" value="wep"> WEP<br/><br/>
+
+    <button type="submit">Submit</button>
+  </form>
+  <div id="quizResult"></div>
+</section>
+
+<script>
+  function checkQuiz(event) {
+    event.preventDefault();
+    const answer = document.querySelector('input[name="q1"]:checked')?.value;
+    const result = document.getElementById("quizResult");
+    if(answer === "wpa3") {
+      result.innerText = "Correct! WPA3 is currently the most secure encryption.";
+    } else {
+      result.innerText = "Incorrect. Try again!";
+    }
+  }
+</script>
+<section id="auth-section" style="max-width:400px; margin:auto; padding:1rem; background:#222; border-radius:8px; color:#eee;">
+  <h2>Signup</h2>
+  <form id="signupForm">
+    <input type="text" id="signupUsername" placeholder="Username" required style="width:100%; padding:0.5rem; margin:0.3rem 0;" />
+    <input type="password" id="signupPassword" placeholder="Password" required style="width:100%; padding:0.5rem; margin:0.3rem 0;" />
+    <button type="submit" style="width:100%; padding:0.6rem; background:#00ffcc; border:none; font-weight:bold; cursor:pointer;">Sign Up</button>
+  </form>
+  <p id="signupMessage"></p>
+
+  <hr style="margin:2rem 0; border-color:#444;" />
+
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="text" id="loginUsername" placeholder="Username" required style="width:100%; padding:0.5rem; margin:0.3rem 0;" />
+    <input type="password" id="loginPassword" placeholder="Password" required style="width:100%; padding:0.5rem; margin:0.3rem 0;" />
+    <button type="submit" style="width:100%; padding:0.6rem; background:#00ffcc; border:none; font-weight:bold; cursor:pointer;">Log In</button>
+  </form>
+  <p id="loginMessage"></p>
+</section>
+
+<script>
+  // Save users as { username: password } in localStorage
+  function getUsers() {
+    return JSON.parse(localStorage.getItem('users') || '{}');
+  }
+  function setUsers(users) {
+    localStorage.setItem('users', JSON.stringify(users));
+  }
+
+  // Signup form handler
+  document.getElementById('signupForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('signupUsername').value.trim();
+    const password = document.getElementById('signupPassword').value;
+
+    if (!username || !password) return;
+
+    const users = getUsers();
+    if (users[username]) {
+      document.getElementById('signupMessage').textContent = "Username already exists!";
+      return;
+    }
+
+    users[username] = password;
+    setUsers(users);
+    document.getElementById('signupMessage').textContent = "Signup successful! You can now log in.";
+    e.target.reset();
+  });
+
+  // Login form handler
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('loginUsername').value.trim();
+    const password = document.getElementById('loginPassword').value;
+
+    const users = getUsers();
+    if (users[username] && users[username] === password) {
+      document.getElementById('loginMessage').textContent = "Login successful! Welcome, " + username + ".";
+      // Here you could redirect or show protected content
+    } else {
+      document.getElementById('loginMessage').textContent = "Invalid username or password.";
+    }
+  });
+</script>
+
+<section>
+  <h2>Report Suspicious Activity</h2>
+  <form id="reportForm">
+    <label for="details">Describe what you experienced:</label><br />
+    <textarea id="details" name="details" rows="4" required style="width:100%;"></textarea><br />
+    <label for="email">Your email (optional):</label><br />
+    <input type="email" id="email" name="email" placeholder="you@example.com" style="width:100%;" /><br />
+    <button type="submit" style="margin-top:0.5rem;">Submit Report</button>
+  </form>
+  <p id="reportStatus"></p>
+</section>
+
+<script>
+  document.getElementById('reportForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const details = document.getElementById('details').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!details) {
+      document.getElementById('reportStatus').textContent = "Please describe the activity.";
+      return;
+    }
+
+    // Here, send the report to your server or an email API
+    // For demo, we just show a success message
+    document.getElementById('reportStatus').textContent = "Thank you for your report! We will review it shortly.";
+    this.reset();
+  });
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SecureNet Task Bar</title>
+<style>
+  body {
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #eee;
+    padding-bottom: 60px; /* space for taskbar */
+  }
+  .page-section {
+    display: none;
+    padding: 1rem;
+  }
+  .page-section.active {
+    display: block;
+  }
+  /* Task bar styling */
+  .taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 56px;
+    background: #222;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #444;
+    z-index: 1000;
+  }
+  .taskbar button {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 14px;
+    flex-grow: 1;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .taskbar button:hover,
+  .taskbar button.active {
+    background: #00ffcc;
+    color: #000;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<!-- Sections (Pages) -->
+<section id="home" class="page-section active">
+  <h1>Welcome to SecureNet</h1>
+  <p>Your trusted security partner.</p>
+</section>
+
+<section id="services" class="page-section">
+  <h1>Our Services</h1>
+  <ul>
+    <li>Wi-Fi Security Audits</li>
+    <li>Vulnerability Assessments</li>
+    <li>ISP Performance Help</li>
+  </ul>
+</section>
+
+<section id="login" class="page-section">
+  <h1>Login</h1>
+  <p>Login form will go here.</p>
+</section>
+
+<section id="contact" class="page-section">
+  <h1>Contact Us</h1>
+  <p>Contact form will go here.</p>
+</section>
+
+<!-- Task Bar -->
+<nav class="taskbar">
+  <button data-target="home" class="active">Home</button>
+  <button data-target="services">Services</button>
+  <button data-target="login">Login</button>
+  <button data-target="contact">Contact</button>
+</nav>
+
+<script>
+  const buttons = document.querySelectorAll('.taskbar button');
+  const sections = document.querySelectorAll('.page-section');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all buttons and sections
+      buttons.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+
+      // Activate clicked button
+      btn.classList.add('active');
+
+      // Show the related section
+      const targetId = btn.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
